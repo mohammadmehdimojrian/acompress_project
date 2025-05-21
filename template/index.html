@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RLE & Huffman Compression Comparator</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #00bcd4;
+    }
+
+    .card {
+      background-color: #1e1e1e;
+      border-radius: 16px;
+      padding: 24px;
+      margin: 16px;
+      width: 90%;
+      max-width: 600px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .card h2 {
+      color: #ff9800;
+    }
+
+    input[type="text"], textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #00bcd4;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1em;
+      margin: 10px 5px 0 0;
+    }
+
+    .output {
+      background-color: #2c2c2c;
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 10px;
+      word-wrap: break-word;
+    }
+  </style>
+</head>
+<body>
+  <h1>RLE & Huffman Compression Comparator</h1>
+
+  <form class="card" onsubmit="event.preventDefault();">
+    <h2>Enter Text</h2>
+    <input type="text" id="inputText" placeholder="Type your text here...">
+  </form>
+
+  <div class="card">
+    <h2>Run Length Encoding (RLE)</h2>
+    <button id="compressRLE" onclick="document.getElementById('rleOutput').innerText = 'CompressedRLEOutput123'; document.getElementById('rleSize').innerText = 'Compressed Size: 21';">Compress</button>
+    <button id="decompressRLE" onclick="document.getElementById('rleOutput').innerText = 'OriginalTextFromRLE'; document.getElementById('rleSize').innerText = 'Original Size: 18';">Decompress</button>
+    <div class="output" id="rleOutput"></div>
+    <div class="output" id="rleSize"></div>
+  </div>
+
+  <div class="card">
+    <h2>Huffman Encoding</h2>
+    <button id="compressHuffman" onclick="document.getElementById('huffmanOutput').innerText = '1010101010001101'; document.getElementById('huffmanSize').innerText = 'Compressed Size (bits): 16';">Compress</button>
+    <button id="decompressHuffman" onclick="document.getElementById('huffmanOutput').innerText = 'OriginalTextFromHuffman'; document.getElementById('huffmanSize').innerText = 'Original Size: 22';">Decompress</button>
+    <div class="output" id="huffmanOutput"></div>
+    <div class="output" id="huffmanSize"></div>
+  </div>
+
+</body>
+</html>
