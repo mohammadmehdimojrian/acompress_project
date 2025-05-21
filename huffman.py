@@ -61,11 +61,11 @@ def huffman_decode(encoded , codebook):
                 decoded+=c
                 cur=''
                 break
-    print(decoded)
+    return decoded
 
 if __name__ == '__main__':
     string = 'aaaaaaa'
     encoded_string , codebook = huffman_encode(string)
     print(encoded_string , list(codebook.items()))
-    huffman_decode(encoded=encoded_string , codebook=codebook)
+    print(huffman_decode(encoded=encoded_string , codebook=codebook))
     

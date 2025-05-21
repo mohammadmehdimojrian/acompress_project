@@ -142,7 +142,7 @@
       <div class="section-title">Huffman Output</div>
       <div class="text-box">{{encoded_huffman}}</div>
       <div class="info">Compressed Size: {{encoded_huffman_size}} bytes</div>
-      <a href="/decompress/huffman/" class="decompress-link">Decompress Huffman</a>
+      <a href="{% url 'huffman_decompress' encoded_huffman original_text  %}" class="decompress-link">Decompress Huffman</a>
     </div>
 
     <!-- RLE Result -->
@@ -150,7 +150,7 @@
       <div class="section-title">RLE Output</div>
       <div class="text-box">{{encoded_rle}}</div>
       <div class="info">Compressed Size: {{encoded_rle_size}} bytes</div>
-      <a href="/decompress/rle/" class="decompress-link">Decompress RLE</a>
+      <a href="{% url 'rle_decompress' encoded_rle %}" class="decompress-link">Decompress RLE</a>
     </div>
   </div>
 </body>
