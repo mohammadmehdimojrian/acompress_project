@@ -23,6 +23,9 @@ def RLE_decode(st:str):
     numbers =  list(map(lambda k: int(k),re.findall(r'\d+',st)))
     strings= list(filter(lambda k : k!='',re.sub(r'\d',' ',st).split(' ')))
     
+    if not strings:  #strings =[]
+        strings.append(' ')
+        
     for i in range(len(numbers)):
         result+=numbers[i]*strings[i]
     return result
@@ -31,6 +34,6 @@ def RLE_decode(st:str):
 
 if __name__ == "__main__":
     original = 'ccvvvvv'
-    st2='02c05v'
+    st2='5a7k'
     print(RLE_encode(original))
     print(RLE_decode(st2))
