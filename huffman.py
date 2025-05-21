@@ -62,7 +62,7 @@ def huffman_decode(encoded , codebook):
     print(decoded)
 
 if __name__ == '__main__':
-    string = 'AAAABCA'
+    string = 'aaaaaaa'
     encoded_string , codebook = huffman_encode(string)
     print(encoded_string , list(codebook.items()))
     huffman_decode(encoded=encoded_string , codebook=codebook)

@@ -5,7 +5,7 @@ def RLE_encode(st:str):
     result=''
     
     n = len(st)                               
-    bit_len = len(str(n)) 
+    bit_len = len(str(n))
     i = 0
     while i < n:
 
@@ -14,7 +14,7 @@ def RLE_encode(st:str):
                st[i] == st[i + 1]):
             count += 1
             i += 1
-        result += f"{count:0{bit_len}d}{st[i]}"
+        result += f"{count}{st[i]}"   #        result += f"{count:0{bit_len}d}{st[i]}"
         i+=1
     return result
 

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Decompressed Output</title>
+  <style>
+    :root {
+      --primary: #00bcd4;
+      --primary-light: #26c6da;
+      --accent: #ffc107;
+      --bg-dark: #121212;
+      --bg-card: rgba(26, 26, 26, 0.9);
+      --text-light: #f5f5f5;
+      --text-muted: #bbb;
+      --font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --transition: 0.3s ease-in-out;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 40px 15px;
+      background: linear-gradient(-45deg, #0a0a0a, #1a1a1a, #0a0a0a);
+      background-size: 400% 400%;
+      animation: bgShift 30s ease infinite;
+      font-family: var(--font);
+      color: var(--text-light);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    @keyframes bgShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      background-color: var(--bg-card);
+      padding: 38px 46px;
+      border-radius: 20px;
+      width: 100%;
+      max-width: 700px;
+      box-shadow: 0 10px 30px rgba(0, 188, 212, 0.7), 0 0 18px var(--primary-light);
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      color: var(--primary);
+      text-align: center;
+      font-weight: 800;
+      margin-bottom: 12px;
+      text-shadow: 0 0 10px var(--primary-light);
+    }
+
+    .section {
+      background-color: #1b1b1b;
+      border-radius: 16px;
+      padding: 24px 28px;
+      box-shadow: inset 0 0 8px rgba(0, 188, 212, 0.08);
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      color: var(--accent);
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .text-box {
+      background-color: #2a2a2a;
+      color: var(--text-light);
+      padding: 14px 18px;
+      border-radius: 10px;
+      font-size: 1.05rem;
+      font-weight: 500;
+      word-wrap: break-word;
+      margin-bottom: 8px;
+      box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
+    }
+
+    .info {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .decompress-link {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary), #007c91);
+      color: #fff;
+      font-weight: 600;
+      padding: 10px 24px;
+      border-radius: 14px;
+      text-decoration: none;
+      transition: background var(--transition), transform 0.2s ease;
+      box-shadow: 0 8px 20px rgba(0, 188, 212, 0.6);
+    }
+
+    .decompress-link:hover {
+      background: linear-gradient(135deg, #00e5ff, #008ba3);
+      transform: translateY(-3px);
+    }
+
+    .decompress-link:active {
+      transform: scale(0.96);
+    }
+
+    @media (max-width: 500px) {
+      .container {
+        padding: 28px 20px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Decompression Results</h1>
+
+    <!-- Input Text Section -->
+    <div class="section">
+      <div class="section-title">Original Input</div>
+      <div class="text-box">{{original_text}}</div>
+      <div class="info">Original Size: {{original_text_size}} bytes</div>
+    </div>
+
+    <!-- Huffman Result -->
+    <div class="section">
+      <div class="section-title">Huffman Output</div>
+      <div class="text-box">{{encoded_huffman}}</div>
+      <div class="info">Compressed Size: {{encoded_huffman_size}} bytes</div>
+      <a href="/decompress/huffman/" class="decompress-link">Decompress Huffman</a>
+    </div>
+
+    <!-- RLE Result -->
+    <div class="section">
+      <div class="section-title">RLE Output</div>
+      <div class="text-box">{{encoded_rle}}</div>
+      <div class="info">Compressed Size: {{encoded_rle_size}} bytes</div>
+      <a href="/decompress/rle/" class="decompress-link">Decompress RLE</a>
+    </div>
+  </div>
+</body>
+</html>
