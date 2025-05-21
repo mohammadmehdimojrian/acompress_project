@@ -41,6 +41,8 @@ def huffman_codes(node, prefix='', codebook=None):
 
 
 def huffman_encode(string: str):
+    if len(list(set(string)))==1:
+        return len(string) *'1' , {string[0]:'1'}
     nodes = freq_letter(string)
     root = first_father(nodes)
     codebook = huffman_codes(root) #{'E': '000', 'C': '001', 'B': '01', 'A': '10', 'w': '110', 'F': '111'})
