@@ -19,17 +19,14 @@ def RLE_encode(st:str):
     return result
 
 def RLE_decode(st:str):
-    result=''
-    numbers =  list(map(lambda k: int(k),re.findall(r'\d+',st)))
-    strings= list(filter(lambda k : k!='',re.sub(r'\d',' ',st).split(' ')))
-    
-    if not strings:  #strings =[]
-        strings.append(' ')
-        
-    for i in range(len(numbers)):
-        result+=numbers[i]*strings[i]
+    result = ''
+    pattern = re.findall(r'(\d+)([a-zA-Z]*)', st)
+    # print(pattern)
+    for number_str, text in pattern:
+        count = int(number_str)
+        result += text * count
+
     return result
-    
     
 
 if __name__ == "__main__":
