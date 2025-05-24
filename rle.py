@@ -5,7 +5,6 @@ def RLE_encode(st:str):
     result=''
     
     n = len(st)                               
-    bit_len = len(str(n))
     i = 0
     while i < n:
 
