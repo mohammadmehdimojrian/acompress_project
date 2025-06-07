@@ -37,7 +37,7 @@ pip install -r requirement.txt
 ### اجرای برنامه
 
 ```bash
-python manage.py
+python manage.py runserver
 ```
 
 ## 🧪 استفاده از الگوریتم‌ها
